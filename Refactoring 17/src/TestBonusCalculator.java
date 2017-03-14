@@ -6,11 +6,14 @@ public class TestBonusCalculator {
 		// on completely different objects just by defining a
 		// new concrete Visitor
 		
-		YearlyBonusVisitor yearlyBonusCalculator = new YearlyBonusVisitor();
+		//	*Calculate Quarterly Bonus*		
+		Visitor yearlyBonusCalculator = new YearlyBonusVisitor();
+		// *alt: YearlyBonusVisitor yearlyBonusCalculator = new YearlyBonusVisitor();*
 		
-		SalesTrainee bradTrainee = new SalesTrainee(5, 1, 20000);
-		Salesman tomSalesman = new Salesman(150000, 62);
-		Boss rossBoss = new Boss(1000000, 1200, 4000000);
+		Visitable bradTrainee = new SalesTrainee(5, 1, 20000);
+		Visitable tomSalesman = new Salesman(150000, 62);
+		Visitable rossBoss = new Boss(1000000, 1200, 4000000);
+		// *alt: Boss rossBoss = new Boss(1000000, 1200, 4000000);*
 		
 		System.out.println("YEARLY BONUS");
 		
@@ -18,9 +21,8 @@ public class TestBonusCalculator {
 		System.out.println(tomSalesman.accept(yearlyBonusCalculator));
 		System.out.println(rossBoss.accept(yearlyBonusCalculator));
 		
-		// Calculate Quarterly Bonus
-		
-		QuarterlyBonusVisitor quarterlyBonusCalculator = new QuarterlyBonusVisitor();
+		// *Calculate Quarterly Bonus*		
+		Visitor quarterlyBonusCalculator = new QuarterlyBonusVisitor();
 		
 		bradTrainee = new SalesTrainee(1, 0, 20000);
 		tomSalesman = new Salesman(30000, 22);
@@ -35,3 +37,20 @@ public class TestBonusCalculator {
 	}
 	
 }
+/*
+YEARLY BONUS
+Trainees Yearly Bonus
+2000.0
+Salesmans Yearly Bonus
+18000.0
+Bosses Yearly Bonus
+40000.0
+
+QUARTERLY BONUS
+Trainees Yearly Bonus
+200.0
+Salesmans Yearly Bonus
+900.0
+Bosses Yearly Bonus
+10000.0
+*/

@@ -10,12 +10,18 @@ public class Salesman implements Visitable{
 
 	public double accept(Visitor visitor){
 		
+//		***with this kw, passes the relevant object created in main method***
 		return visitor.visit(this);
 		
 	}
+//	***without using this kw (also need to modify main method):***
+//	public double accept(Visitor visitor, Visitable v){
+//		
+//		return visitor.visit((Salesman) v);
+//		
+//	}
 
 	// Getters & Setters
-
 	public double getTotalSalesAmount() {
 		return totalSalesAmount;
 	}
